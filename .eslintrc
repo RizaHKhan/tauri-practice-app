@@ -1,37 +1,22 @@
 {
-  "root": true,
-  "parser": "vue-eslint-parser",
-  "parserOptions": {
-    "parser": "@typescript-eslint/parser"
-  },
-  "extends": [
-    "plugin:vue/strongly-recommended",
-    "eslint:recommended",
-    "@vue/typescript/recommended",
-    "prettier"
-  ],
-  "plugins": [
-    "@typescript-eslint",
-    "prettier"
-  ],
-  "rules": {
-    "prettier/prettier": "error",
-    "vue/no-multiple-template-root": "off"
-  },
-  "settings": {
-    "import/resolver": {
-      "alias": {
-        "map": [
-          [
-            "@",
-            "./src/"
-          ]
-        ],
-        "extensions": [
-          ".ts",
-          ".vue"
-        ]
-      }
+    "root": true,
+    "env": {
+        "node": true
+    },
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "parser": "@typescript-eslint/parser"
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "eslint:recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended",
+        "plugin:vue/vue3-recommended",
+        "prettier/vue"
+    ],
+    "plugins": ["prettier", "@typescript-eslint"],
+    "rules": {
+        "vue/no-multiple-template-root": "off"
     }
-  }
 }
