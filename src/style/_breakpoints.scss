@@ -1,0 +1,61 @@
+@mixin media-up($point) {
+  $phone: '(min-width: #{$phone})';
+  $tablet: '(min-width: #{$table})';
+  $desktop: '(min-width: #{$desktop})';
+  $widescreen: '(min-width: #{$widescreen})';
+
+  @if $point ==sm {
+    @media #{$phone} {
+      @content;
+    }
+  }
+
+  @else if $point ==md {
+    @media #{$tablet} {
+      @content;
+    }
+  }
+
+  @else if $point ==lg {
+    @media #{$desktop} {
+      @content;
+    }
+  }
+
+  @else if $point ==xl {
+    @media #{$widescreen} {
+      @content;
+    }
+  }
+}
+
+@mixin media-down($point) {
+  $phone: '(max-width: #{$phone})';
+  $tablet: '(max-width: #{$table})';
+  $desktop: '(max-width: #{$desktop})';
+  $widescreen: '(max-width: #{$widescreen})';
+
+  @if $point ==sm {
+    @media #{$phone} {
+      @content;
+    }
+  }
+
+  @else if $point ==md {
+    @media #{$tablet} {
+      @content;
+    }
+  }
+
+  @else if $point ==lg {
+    @media #{$desktop} {
+      @content;
+    }
+  }
+
+  @else if $point ==xl {
+    @media #{$widescreen} {
+      @content;
+    }
+  }
+}
