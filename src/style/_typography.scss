@@ -8,13 +8,15 @@
 
   --line-height: normal;
   --font-weight: normal;
+  --font-color: inherit;
 }
 
 @mixin apply-typography($element, $size, $line-height: normal, $font-weight: normal) {
   #{$element} {
-    size: $size;
+    font-size: $size;
     line-height: $line-height;
     font-weight: $font-weight;
+    color: var(--font-color);
   }
 }
 
