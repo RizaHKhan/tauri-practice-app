@@ -5,32 +5,32 @@ $sizes: 12;
     $margin: $i * 0.25rem;
 
     /* margin #{$margin} */
-    .m#{$i} {
+    %m#{$i} {
       margin: $margin;
     }
 
-    .ml#{$i} {
+    %ml#{$i} {
       margin-left: $margin;
     }
 
-    .mr#{$i} {
+    %mr#{$i} {
       margin-right: $margin;
     }
 
-    .mt#{$i} {
+    %mt#{$i} {
       margin-top: $margin;
     }
 
-    .mb#{$i} {
+    %mb#{$i} {
       margin-bottom: $margin;
     }
 
-    .mx#{$i} {
+    %mx#{$i} {
       margin-left: $margin;
       margin-right: $margin;
     }
 
-    .my#{$i} {
+    %my#{$i} {
       margin-top: $margin;
       margin-bottom: $margin;
     }
@@ -44,32 +44,32 @@ $sizes: 12;
     $padding: $i * 0.25rem;
 
     /* padding #{$padding} */
-    .p#{$i} {
+    %p#{$i} {
       padding: $padding;
     }
 
-    .pl#{$i} {
+    %pl#{$i} {
       padding-left: $padding;
     }
 
-    .pr#{$i} {
+    %pr#{$i} {
       padding-right: $padding;
     }
 
-    .pt#{$i} {
+    %pt#{$i} {
       padding-top: $padding;
     }
 
-    .pb#{$i} {
+    %pb#{$i} {
       padding-bottom: $padding;
     }
 
-    .px#{$i} {
+    %px#{$i} {
       padding-left: $padding;
       padding-right: $padding;
     }
 
-    .py#{$i} {
+    %py#{$i} {
       padding-top: $padding;
       padding-bottom: $padding;
     }
