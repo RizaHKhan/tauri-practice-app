@@ -1,3 +1,13 @@
+<template>
+    <div class="app">
+        <Tabs :tabs="tabs">
+            <template #content-style>
+                <Style />
+            </template>
+        </Tabs>
+    </div>
+</template>
+
 <script setup lang="ts">
 import { Tab } from 'types'
 import Style from 'views/Style.vue'
@@ -15,12 +25,8 @@ const tabs: Tab[] = [
 ]
 </script>
 
-<template>
-    <div class="container">
-        <Tabs :tabs="tabs">
-            <template #content-style>
-                <Style />
-            </template>
-        </Tabs>
-    </div>
-</template>
+<style lang="scss" scoped>
+.app {
+    @include padding(md);
+}
+</style>

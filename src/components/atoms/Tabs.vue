@@ -7,7 +7,7 @@
                 :name="`header-${name}`"
                 v-bind="{ name, title, selectTab, selectedTab }"
             >
-                <Button @click="selectTab(name)">{{ title }}</Button>
+                <Button @click="selectTab(name)" :secondary="selectedTab !== name">{{ title }}</Button>
             </slot>
         </div>
         <div class="tabs__content">
@@ -38,8 +38,11 @@ const selectTab = (name: string) => {
 .tabs {
     &__header {
         @include flex-container(row, flex-start);
+        @include padding(md, bottom);
+        border-bottom: 1px solid #{$cordovan};
     }
     &__content {
+        @include margin(md, top);
     }
 }
 </style>
