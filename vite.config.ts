@@ -7,6 +7,7 @@ export default defineConfig(async () => ({
     preprocessorOptions: {
       scss: {
         additionalData: `
+          @import "./src/style/variables";
           @import "./src/style/breakpoints";
           @import "./src/style/spacing";
           @import "./src/style/flex-container";

@@ -31,9 +31,21 @@ const t = 'primary'
 
         <div class="buttons">
             <strong>Buttons:</strong>
-            <Button>Primyar</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="warn">Warn</Button>
+            <Button>Primary</Button>
+            <Button secondary>Secondary</Button>
+            <Button warn>Primary</Button>
+
+            <Button disabled>Primary</Button>
+            <Button disabled secondary>Secondary</Button>
+            <Button disabled warn>Primary</Button>
+
+            <Button secondary sm>Secondary</Button>
+            <Button warn sm>Warn</Button>
+            <Button warn sm>Warn</Button>
+
+            <Button secondary lg>Secondary</Button>
+            <Button warn lg>Warn</Button>
+            <Button warn lg>Warn</Button>
         </div>
     </div>
 </template>
@@ -41,6 +53,6 @@ const t = 'primary'
 <style lang="scss" scoped>
 .buttons {
     @include flex-container(column, space-between, flex-start, wrap);
-    @include gap(m);
+    @include gap(md);
 }
 </style>

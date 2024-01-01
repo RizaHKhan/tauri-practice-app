@@ -1,14 +1,14 @@
 // Define sizes
 $spacing-sizes: (
   xs: 4px,
-  s: 8px,
-  m: 16px,
-  l: 24px,
+  sm: 8px,
+  md: 16px,
+  lg: 24px,
   xl: 32px,
 );
 
 // Mixin for margin
-@mixin margin($size: m, $direction: null) {
+@mixin margin($size: md, $direction: null) {
   @if $direction {
     margin-#{$direction}: map-get($spacing-sizes, $size);
   }
@@ -19,7 +19,7 @@ $spacing-sizes: (
 }
 
 // Mixin for padding
-@mixin padding($size: m, $direction: null) {
+@mixin padding($size: md, $direction: null) {
   @if $direction {
     padding-#{$direction}: map-get($spacing-sizes, $size);
   }
@@ -30,7 +30,7 @@ $spacing-sizes: (
 }
 
 // Gap for padding
-@mixin gap($size: m) {
+@mixin gap($size: md) {
   grid-gap: map-get($spacing-sizes, $size);
 }
 
