@@ -1,79 +1,36 @@
-$sizes: 12;
+// Define sizes
+$spacing-sizes: (
+  xs: 4px,
+  s: 8px,
+  m: 16px,
+  l: 24px,
+  xl: 32px,
+);
 
-@mixin margin-classes {
-  @for $i from 1 through $sizes {
-    $margin: $i * 0.25rem;
+// Mixin for margin
+@mixin margin($size: medium, $direction: null) {
+  @if $direction {
+    margin-#{$direction}: map-get($spacing-sizes, $size);
+  }
 
-    /* margin #{$margin} */
-    %m#{$i} {
-      margin: $margin;
-    }
-
-    %ml#{$i} {
-      margin-left: $margin;
-    }
-
-    %mr#{$i} {
-      margin-right: $margin;
-    }
-
-    %mt#{$i} {
-      margin-top: $margin;
-    }
-
-    %mb#{$i} {
-      margin-bottom: $margin;
-    }
-
-    %mx#{$i} {
-      margin-left: $margin;
-      margin-right: $margin;
-    }
-
-    %my#{$i} {
-      margin-top: $margin;
-      margin-bottom: $margin;
-    }
+  @else {
+    margin: map-get($spacing-sizes, $size);
   }
 }
 
-@include margin-classes;
+// Mixin for padding
+@mixin padding($size: medium, $direction: null) {
+  @if $direction {
+    padding-#{$direction}: map-get($spacing-sizes, $size);
+  }
 
-@mixin padding-classes {
-  @for $i from 1 through $sizes {
-    $padding: $i * 0.25rem;
-
-    /* padding #{$padding} */
-    %p#{$i} {
-      padding: $padding;
-    }
-
-    %pl#{$i} {
-      padding-left: $padding;
-    }
-
-    %pr#{$i} {
-      padding-right: $padding;
-    }
-
-    %pt#{$i} {
-      padding-top: $padding;
-    }
-
-    %pb#{$i} {
-      padding-bottom: $padding;
-    }
-
-    %px#{$i} {
-      padding-left: $padding;
-      padding-right: $padding;
-    }
-
-    %py#{$i} {
-      padding-top: $padding;
-      padding-bottom: $padding;
-    }
+  @else {
+    padding: map-get($spacing-sizes, $size);
   }
 }
 
-@include padding-classes;
+// Example usage
+// .element {
+//   @include margin(x-small, top);
+//   @include padding(large, right);
+// }

@@ -11,17 +11,27 @@ async function greet() {
 </script>
 
 <template>
-    <form class="row" @submit.prevent="greet">
-        <input id="greet-input" v-model="name" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-    </form>
+    <div class="container">
+        <form class="row" @submit.prevent="greet">
+            <input id="greet-input" v-model="name" placeholder="Enter a name..." />
+            <button type="submit">Greet</button>
+        </form>
 
-    <strong>Typography:</strong>
-    <h1>h1</h1>
-    <h2>h2</h2>
-    <h3>h3</h3>
-    <h4>h4</h4>
-    <h5>h5</h5>
-    <h6>h6</h6>
-    <p>p normal</p>
+        <strong>Typography:</strong>
+        <h1>h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+        <h5>h5</h5>
+        <h6>h6</h6>
+        <p>p normal</p>
+    </div>
 </template>
+
+<style lang="scss" scoped>
+.container {
+    border: solid 1px red;
+    @include margin(xl, top);
+    @include padding(xl, top);
+}
+</style>
