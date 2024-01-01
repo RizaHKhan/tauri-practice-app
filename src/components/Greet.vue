@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { invoke } from '@tauri-apps/api/tauri'
-import Button from './atoms/Button.vue'
-import Input from './atoms/Input.vue'
+import Button from 'atoms/Button.vue'
+import Input from 'atoms/Input.vue'
 
 const greetMsg = ref('')
 const name = ref('')
