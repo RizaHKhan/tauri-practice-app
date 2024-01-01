@@ -8,6 +8,8 @@ export default defineConfig(async () => ({
     alias: {
       '@': path.resolve(__dirname, './src'),
       atoms: path.resolve(__dirname, './src/components/atoms'),
+      types: path.resolve(__dirname, './src/types'),
+      views: path.resolve(__dirname, './src/components/views'),
     },
   },
   css: {
