@@ -47,7 +47,7 @@ const type = computed(() => {
 :root {
     --label-color: #{$wenge};
 
-    --input-border-radius: 8px;
+    --input-border-radius: #{$radius};
     --input-border: 1px solid transparent;
     --input-padding: 0.6em 1.2em;
     --input-font-size: 1em;
@@ -82,6 +82,9 @@ input {
     &__label {
     }
     &__input {
+        &:focus {
+            border: solid 1px red;
+        }
     }
 }
 </style>

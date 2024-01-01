@@ -51,7 +51,7 @@ const size = computed(() => {
 
 <style lang="scss">
 :root {
-    --button-border-radius: 5px;
+    --button-border-radius: #{$radius};
     --button-border: 1px solid transparent;
     --button-padding: 10px 20px;
     --button-font-size: 16px;
