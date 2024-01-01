@@ -4,12 +4,13 @@
     --h3-size: 50px;
     --h4-size: 40px;
     --h5-size: 30px;
-    --p-size: 20px;
+    --p-size: 16px;
 
     --line-height: normal;
     --font-weight: normal;
     --font-color: inherit;
     --font-display: inline-block;
+    --text-align: start;
 }
 
 @mixin apply-typography($element, $size, $line-height: normal, $font-weight: normal) {
@@ -19,6 +20,7 @@
         font-weight: $font-weight;
         display: var(--font-display);
         color: var(--font-color);
+        text-align: var(--text-align);
     }
 }
 
