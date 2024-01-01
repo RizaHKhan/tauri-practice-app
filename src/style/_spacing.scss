@@ -8,7 +8,7 @@ $spacing-sizes: (
 );
 
 // Mixin for margin
-@mixin margin($size: medium, $direction: null) {
+@mixin margin($size: m, $direction: null) {
   @if $direction {
     margin-#{$direction}: map-get($spacing-sizes, $size);
   }
@@ -19,7 +19,7 @@ $spacing-sizes: (
 }
 
 // Mixin for padding
-@mixin padding($size: medium, $direction: null) {
+@mixin padding($size: m, $direction: null) {
   @if $direction {
     padding-#{$direction}: map-get($spacing-sizes, $size);
   }
@@ -30,13 +30,13 @@ $spacing-sizes: (
 }
 
 // Gap for padding
-@mixin gap($size: medium) {
+@mixin gap($size: m) {
   grid-gap: map-get($spacing-sizes, $size);
 }
 
 // Example usage
 // .element {
-//   @include margin(x-small, top);
-//   @include padding(large, right);
-//   @include gap(large);
+//   @include margin(xs, top);
+//   @include padding(lg, right);
+//   @include gap(lg);
 // }
