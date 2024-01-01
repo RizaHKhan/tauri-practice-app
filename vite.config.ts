@@ -9,6 +9,8 @@ export default defineConfig(async () => ({
         additionalData: `
           @import "./src/style/breakpoints";
           @import "./src/style/spacing";
+          @import "./src/style/flex-container";
+          @import "./src/style/grid-container";
           `,
       },
     },

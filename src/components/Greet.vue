@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { invoke } from '@tauri-apps/api/tauri'
+import Button from './atoms/Button.vue'
 
 const greetMsg = ref('')
 const name = ref('')
@@ -8,6 +9,8 @@ const name = ref('')
 async function greet() {
     greetMsg.value = await invoke('greet', { name: name.value })
 }
+
+const t = 'primary'
 </script>
 
 <template>
@@ -24,14 +27,20 @@ async function greet() {
         <h4>h4</h4>
         <h5>h5</h5>
         <h6>h6</h6>
-        <p>p normal</p>
+        <p>p</p>
+
+        <div class="buttons">
+            <strong>Buttons:</strong>
+            <Button>Primyar</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="warn">Warn</Button>
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.container {
-    border: solid 1px red;
-    @include margin(xl, top);
-    @include padding(xl, top);
+.buttons {
+    @include flex-container(column, space-between, flex-start, wrap);
+    @include gap(m);
 }
 </style>

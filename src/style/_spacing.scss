@@ -29,8 +29,14 @@ $spacing-sizes: (
   }
 }
 
+// Gap for padding
+@mixin gap($size: medium) {
+  grid-gap: map-get($spacing-sizes, $size);
+}
+
 // Example usage
 // .element {
 //   @include margin(x-small, top);
 //   @include padding(large, right);
+//   @include gap(large);
 // }
