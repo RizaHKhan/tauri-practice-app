@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { invoke } from '@tauri-apps/api/tauri'
 import Button from './atoms/Button.vue'
+import Input from './atoms/Input.vue'
 
 const greetMsg = ref('')
 const name = ref('')
@@ -10,13 +11,13 @@ async function greet() {
     greetMsg.value = await invoke('greet', { name: name.value })
 }
 
-const t = 'primary'
+const input = ref('')
 </script>
 
 <template>
     <div class="container">
         <form class="row" @submit.prevent="greet">
-            <input id="greet-input" v-model="name" placeholder="Enter a name..." />
+            <Input v-model="name" placeholder="Enter a name..." />
             <button type="submit">Greet</button>
         </form>
 
@@ -58,13 +59,27 @@ const t = 'primary'
                 <Button warn lg>Warn</Button>
             </div>
         </div>
+        <div class="inputs">
+            {{ input }}
+            <div class="form">
+                <Input v-model="input" label="Name" placeholder="foo" />
+                <Input v-model="input" email label="Email" placeholder="foo" />
+                <Input v-model="input" label="Password" password placeholder="Password" />
+            </div>
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
+.container {
+    @include padding(md);
+}
 .content {
     @include flex-container(row);
     @include margin(md, bottom);
-    @include gap(md);
+}
+
+.form {
+    @include grid-container(1fr 1fr, auto, sm);
 }
 </style>

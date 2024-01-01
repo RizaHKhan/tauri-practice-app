@@ -1,1 +1,87 @@
+// Define sizes
+$spacing-sizes: (
+  xs: 4px,
+  sm: 8px,
+  md: 16px,
+  lg: 24px,
+  xl: 32px,
+);
 
+@mixin grid-container($columns: auto, $rows: auto, $gap: md) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  gap: map-get($spacing-sizes, $gap);
+}
+
+@mixin grid-item($column: auto, $row: auto, $col-span: auto, $row-span: auto) {
+  grid-column: $column;
+  grid-row: $row;
+  grid-column-end: span $col-span;
+  grid-row-end: span $row-span;
+}
+
+// Example usage:
+// .container {
+//   @include grid-container(1fr 1fr, auto, md);
+// }
+//
+// .item {
+//   @include grid-item(1, 1, 2, 1);
+// }
+
+@mixin flex-container($direction: row, $justify: flex-start, $gap: md, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  gap: map-get($spacing-sizes, $gap);
+}
+
+@mixin flex-item($grow: 0, $shrink: 1, $basis: auto) {
+  flex: $grow $shrink $basis;
+}
+
+// Example usage:
+// .container {
+//   @include flex-container(row, space-between, md, center, wrap);
+// }
+//
+// .item {
+//   @include flex-item(1, 0, 200px);
+// }
+
+// Mixin for margin
+@mixin margin($size: md, $direction: null) {
+  @if $direction {
+    margin-#{$direction}: map-get($spacing-sizes, $size);
+  }
+
+  @else {
+    margin: map-get($spacing-sizes, $size);
+  }
+}
+
+// Mixin for padding
+@mixin padding($size: md, $direction: null) {
+  @if $direction {
+    padding-#{$direction}: map-get($spacing-sizes, $size);
+  }
+
+  @else {
+    padding: map-get($spacing-sizes, $size);
+  }
+}
+
+// Gap for padding
+@mixin gap($size: md) {
+  grid-gap: map-get($spacing-sizes, $size);
+}
+
+// Example usage
+// .element {
+//   @include margin(xs, top);
+//   @include padding(lg, right);
+//   @include gap(lg);
+// }
