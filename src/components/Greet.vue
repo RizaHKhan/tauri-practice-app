@@ -20,39 +20,51 @@ const t = 'primary'
             <button type="submit">Greet</button>
         </form>
 
-        <strong>Typography:</strong>
-        <h1>h1</h1>
-        <h2>h2</h2>
-        <h3>h3</h3>
-        <h4>h4</h4>
-        <h5>h5</h5>
-        <h6>h6</h6>
-        <p>p</p>
+        <div class="typography">
+            <strong>Typography:</strong>
+            <div class="content">
+                <h1>h1</h1>
+                <h2>h2</h2>
+                <h3>h3</h3>
+                <h4>h4</h4>
+                <h5>h5</h5>
+                <p>p</p>
+            </div>
+        </div>
 
         <div class="buttons">
             <strong>Buttons:</strong>
-            <Button>Primary</Button>
-            <Button secondary>Secondary</Button>
-            <Button warn>Primary</Button>
+            <div class="content">
+                <Button>Primary</Button>
+                <Button secondary>Secondary</Button>
+                <Button warn>Primary</Button>
+            </div>
 
-            <Button disabled>Primary</Button>
-            <Button disabled secondary>Secondary</Button>
-            <Button disabled warn>Primary</Button>
+            <div class="content">
+                <Button disabled>Primary</Button>
+                <Button disabled secondary>Secondary</Button>
+                <Button disabled warn>Primary</Button>
+            </div>
 
-            <Button secondary sm>Secondary</Button>
-            <Button warn sm>Warn</Button>
-            <Button warn sm>Warn</Button>
+            <div class="content">
+                <Button secondary sm>Secondary</Button>
+                <Button warn sm>Warn</Button>
+                <Button warn sm>Warn</Button>
+            </div>
 
-            <Button secondary lg>Secondary</Button>
-            <Button warn lg>Warn</Button>
-            <Button warn lg>Warn</Button>
+            <div class="content">
+                <Button secondary lg>Secondary</Button>
+                <Button warn lg>Warn</Button>
+                <Button warn lg>Warn</Button>
+            </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.buttons {
-    @include flex-container(column, space-between, flex-start, wrap);
+.content {
+    @include flex-container(row);
+    @include margin(md, bottom);
     @include gap(md);
 }
 </style>
