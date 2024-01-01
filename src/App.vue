@@ -1,85 +1,45 @@
 <template>
     <div class="app">
-        <Tabs :tabs="tabs">
-            <template #content-style>
-                <Style />
-            </template>
-
-            <template #content-other>
-                <div class="cards">
-                    <Card title="Title">
-                        <p>
-                            Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint
-                            ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur
-                            officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate
-                            dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea
-                            nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat
-                            officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis
-                            officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim.
-                            Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
-                        </p>
-                        <template #footer>
-                            <Button>Do This</Button>
-                            <Button secondary>No</Button>
-                        </template>
-                    </Card>
-                    <Card>
-                        <template #header>
-                            <h1>Custom Header</h1>
-                        </template>
-                        <p>
-                            Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint
-                            ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur
-                            officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate
-                            dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea
-                            nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat
-                            officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis
-                            officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim.
-                            Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
-                        </p>
-                    </Card>
-                    <Card>
-                        <template #header>
-                            <h1>Custom Header</h1>
-                        </template>
-                        <p>
-                            Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint
-                            ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur
-                            officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate
-                            dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea
-                            nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat
-                            officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis
-                            officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim.
-                            Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
-                        </p>
-                    </Card>
-                </div>
-            </template>
-        </Tabs>
+        <Sidebar>
+            <Button v-for="({ component, text }, key) in actions" :key="key" @click="setComponent(component)">
+                {{ text }}</Button
+            >
+        </Sidebar>
+        <component :is="components[component]" />
     </div>
 </template>
 
 <script setup lang="ts">
-import { Tab } from 'types'
-import Style from 'views/Style.vue'
-import Tabs from 'atoms/Tabs.vue'
-import Card from 'atoms/Card.vue'
+import { ref, computed, defineAsyncComponent } from 'vue'
+import Sidebar from 'atoms/Sidebar.vue'
 import Button from 'atoms/Button.vue'
 
-const tabs: Tab[] = [
+const components = computed(() => ({
+    style: defineAsyncComponent(() => import('views/Style.vue')),
+    tasks: defineAsyncComponent(() => import('views/Tasks.vue')),
+}))
+
+const actions = computed(() => [
     {
-        name: 'style',
-        title: 'Style',
+        component: 'style',
+        text: 'Style',
     },
     {
-        name: 'other',
-        title: 'Other',
+        component: 'tasks',
+        text: 'Tasks',
     },
-]
+])
+
+const component = ref(Object.keys(components.value)[0])
+
+const setComponent = (key: string) => {
+    component.value = key
+}
 </script>
 
 <style lang="scss" scoped>
 .app {
+    @include flex-container(row);
     @include padding(md);
 }
 
