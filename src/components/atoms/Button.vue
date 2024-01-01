@@ -58,6 +58,7 @@ const size = computed(() => {
     --button-font-weight: 500;
     --button-font-family: inherit;
     --button-color: #{$eerie-black};
+    --button-opacity: 0.8;
     --button-background-color: #{$robin-egg-blue};
     --button-transition: all 0.25s;
     --button-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -71,6 +72,7 @@ button {
     font-weight: var(--button-font-weight);
     font-family: var(--button-font-family);
     color: var(--button-color);
+    opacity: var(--button-opacity);
     background-color: var(--button-background-color);
     transition: var(--button-transition);
     box-shadow: var(--button-box-shadow);
@@ -84,9 +86,11 @@ button {
     }
 
     &:hover {
+        --button-opacity: 1;
     }
 
     &:active {
+        --button-opacity: 0.5;
     }
 
     &.secondary {
