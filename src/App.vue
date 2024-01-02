@@ -21,12 +21,12 @@ const components = computed(() => ({
 
 const actions = computed(() => [
     {
-        component: 'style',
-        text: 'Style',
-    },
-    {
         component: 'tasks',
         text: 'Tasks',
+    },
+    {
+        component: 'style',
+        text: 'Style',
     },
 ])
 

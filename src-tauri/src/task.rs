@@ -1,11 +1,16 @@
+use serde::Serialize;
+
+#[derive(Serialize)]
 pub struct Task {
-    Title: String,
-    Description: String,
+    title: String,
+    description: String,
 }
 
 impl Task {
-    pub fn new(title: String, description: String) -> Self {
-        self.Title = title;
-        self.Description = description;
+    pub fn new(title: &str, description: &str) -> Task {
+        Task {
+            title: title.to_string(),
+            description: description.to_string(),
+        }
     }
 }
