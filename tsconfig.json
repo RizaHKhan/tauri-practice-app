@@ -18,7 +18,7 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*", "./dist/*", ""],
-            "atoms/*": ["./src/components/atoms/*"],
+            "atoms/*": ["./src/components/atoms"],
             "views/*": ["./src/components/views/*"],
             "types/*": ["./src/types/*"]
         }

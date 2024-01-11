@@ -26,6 +26,6 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .tasks {
-    @include flex-container(row);
+    @include grid-container(1fr 1fr 1fr);
 }
 </style>

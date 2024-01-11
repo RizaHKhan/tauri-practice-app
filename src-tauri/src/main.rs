@@ -11,10 +11,13 @@ fn greet(name: &str) -> String {
 
 #[tauri::command]
 fn get_tasks() -> Vec<Task> {
-    let task1: Task = Task::new("Task 1", "This is a sample task description.");
-    let task2: Task = Task::new("Task 2", "This is a sample task description.");
+    let mut tasks: Vec<Task> = Vec::new();
 
-    let tasks: Vec<Task> = vec![task1, task2];
+    for n in 1..10 {
+        let task_name: String = format!("Task {}", n);
+        let task_description: String = format!("{}", "Lorem ipsum");
+        tasks.push(Task::new(&task_name, &task_description));
+    }
 
     tasks
 }

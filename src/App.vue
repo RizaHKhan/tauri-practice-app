@@ -10,16 +10,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineAsyncComponent } from 'vue'
+import { ref, computed, defineAsyncComponent, DefineComponent, ComputedRef, Ref } from 'vue'
 import Sidebar from 'atoms/Sidebar.vue'
 import Button from 'atoms/Button.vue'
 
-const components = computed(() => ({
+type Components = {
+    style: DefineComponent<{}, {}, any>
+    tasks: DefineComponent<{}, {}, any>
+}
+
+const components: ComputedRef<Components> = computed(() => ({
     style: defineAsyncComponent(() => import('views/Style.vue')),
     tasks: defineAsyncComponent(() => import('views/Tasks.vue')),
 }))
 
-const actions = computed(() => [
+const actions: ComputedRef<{ component: keyof Components; text: string }[]> = computed(() => [
     {
         component: 'tasks',
         text: 'Tasks',
@@ -30,9 +35,9 @@ const actions = computed(() => [
     },
 ])
 
-const component = ref(Object.keys(components.value)[0])
+const component: Ref<keyof Components> = ref<keyof Components>(Object.keys(components.value)[0])
 
-const setComponent = (key: string) => {
+const setComponent = (key: keyof Components) => {
     component.value = key
 }
 </script>
